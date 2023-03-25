@@ -15,6 +15,7 @@ export const register = asyncHandler(async (req: Request, res: Response) => {
         password,
         avatar
     });
+    await user.save();
     res.status(201).json({
         id: user._id,
         name: user.name,

@@ -68,11 +68,11 @@ UserSchema.pre("save", async function (next) {
 
 })
 
-UserSchema.methods.comparePassword = function(entredPassword: string){
+UserSchema.methods.comparePassword = function(entredPassword: string) {
     const user = this as IUser;
     return bcrypt.compareSync(entredPassword, user.password);
 }
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model<IUser>("User", UserSchema);
 
 export default User;

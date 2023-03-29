@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import connectDB from './config/db';
+import { errorHandler } from './middlewares/errorMiddleware';
 
 // router imports
 import userRoutes from './routes/userRoutes';
@@ -23,6 +24,9 @@ app.get("/api", (req: Request, res: Response)  => {
 })
 // User Route
 app.use("/api/users", userRoutes);
+
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

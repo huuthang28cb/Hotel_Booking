@@ -8,6 +8,7 @@ import { errorHandler } from './middlewares/errorMiddleware';
 
 // router imports
 import userRoutes from './routes/userRoutes';
+import roomRoutes from './routes/roomRoutes';
 
 const app: Application = express();
 
@@ -24,6 +25,9 @@ app.get("/api", (req: Request, res: Response)  => {
 })
 // User Route
 app.use("/api/users", userRoutes);
+
+// Room Route
+app.use("/api/rooms", roomRoutes);
 
 
 app.use(errorHandler);

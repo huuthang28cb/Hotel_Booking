@@ -10,6 +10,7 @@ import { errorHandler } from './middlewares/errorMiddleware';
 import userRoutes from './routes/userRoutes';
 import roomRoutes from './routes/roomRoutes';
 import uploadRoutes from './routes/uploadRoutes';
+import bookingRoutes from './routes/bookingRoutes';
 
 const app: Application = express();
 
@@ -32,6 +33,9 @@ app.use("/api/rooms", roomRoutes);
 
 // Upload Route
 app.use("/api/uploads", uploadRoutes);
+
+// Booking Route
+app.use("/api/bookings", bookingRoutes);
 
 
 app.use(errorHandler);
